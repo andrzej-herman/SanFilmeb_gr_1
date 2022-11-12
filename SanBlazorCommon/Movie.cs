@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JsonCreator
+namespace SanBlazorCommon
 {
-    internal class Movie
+    public class Movie
     {
         public string Id { get; set; }
         public string Title { get; set; }
@@ -20,6 +20,4 @@ namespace JsonCreator
         public string Trailer { get; set; }
         public string Description { get; set; }
     }
-    
 }
-
