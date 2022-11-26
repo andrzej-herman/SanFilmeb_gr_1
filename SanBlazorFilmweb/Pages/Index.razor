@@ -1,11 +1,13 @@
 ﻿@page "/"
+@using SanBlazorFilmweb.Data;
+@inject IMovieService MovieService
+
 <div class="main-page">
     <div class="container">
         <SanCatalogHeader Title="San Filmweb"/>
         <SanCatalogSearch />
-        <SanCatalogMovies>
-            <MovieTile />
-            <MovieTile />
-        </SanCatalogMovies>
+        <SanCatalogMovies />
     </div>
+    <SanCatalogFooter />
 </div>
+

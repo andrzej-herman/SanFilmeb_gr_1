@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonCreator", "JsonCreator\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SanBlazorFilmweb", "SanBlazorFilmweb\SanBlazorFilmweb.csproj", "{B7B7BB75-291E-4503-A698-D79786775082}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SanBlazorCommon", "SanBlazorCommon\SanBlazorCommon.csproj", "{E3636E84-5858-4FFF-9078-C267EE804477}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SanBlazorCommon", "SanBlazorCommon\SanBlazorCommon.csproj", "{E3636E84-5858-4FFF-9078-C267EE804477}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
