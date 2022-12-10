@@ -57,20 +57,21 @@ namespace SanBlazorFilmweb.Data
 
         private ShortMovie Map (Movie movie)
         {
-            return new ShortMovie
+            var shortMovie =  new ShortMovie
             {
                 Id = movie.Id,
                 ImageUrl = movie.Images[0],
                 Title= movie.Title,
-                Descr = $"{movie.Description.Substring(0, 100)} ..."
             };
+
+            if (movie.Description.Length >= 50)
+                shortMovie.Descr= movie.Description.Substring(0, 50);
+            else
+                shortMovie.Descr= movie.Description;
+
+            return shortMovie;
         }
 
     }
 }
 
-
-//public string Id { get; set; }
-//public string ImageUrl { get; set; }
-//public string Title { get; set; }
-//public string Descr { get; set; }

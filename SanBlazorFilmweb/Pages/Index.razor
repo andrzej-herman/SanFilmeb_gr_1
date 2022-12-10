@@ -1,13 +1,29 @@
 ﻿@page "/"
-@using SanBlazorFilmweb.Data;
 @inject IMovieService MovieService
 
 <div class="main-page">
     <div class="container">
         <SanCatalogHeader Title="San Filmweb"/>
-        <SanCatalogSearch />
-        <SanCatalogMovies />
+        <SanCatalogSearch OnUserSearch="SearchMovies" />
+        <SanCatalogMovies Movies="@Movies"/>
     </div>
     <SanCatalogFooter />
 </div>
+
+
+@code {
+
+    public List<ShortMovie> Movies { get; set; } = new List<ShortMovie>();
+
+    protected override void OnInitialized()
+    {
+        Movies = MovieService.GetRandomMovies().ToList();
+    }
+
+    private void SearchMovies(string phrase)
+    {
+        Movies = MovieService.SearchMovies(phrase).ToList();
+    }
+
+}
 

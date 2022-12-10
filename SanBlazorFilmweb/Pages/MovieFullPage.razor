@@ -1,0 +1,62 @@
+﻿@page "/movie/{MovieId}"
+@inject IMovieService MovieService
+
+<div class="main-page">
+    <div class="container">
+        @if (Movie != null)
+        {
+            <SanCatalogHeader Title="@Movie.Title" />
+            <div class="cast mt-3">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">OBSADA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var actor in Movie.Cast)
+                        {
+                            <tr>
+                                <td>@actor</td>
+                            </tr>
+                        }             
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        }
+    </div>
+    <SanCatalogFooter />
+</div>
+
+
+@*        public string Id { get; set; }
+        public string Title { get; set; }
+        public string OriginalTitle { get; set; }
+        public string Director { get; set; }
+        public string Genre { get; set; }
+        public string Screenplay { get; set; }
+        public string Year { get; set; }
+        public List<string> Cast { get; set; } = new();
+        public List<string> Images { get; set; } = new();
+        public string Trailer { get; set; }
+        public string Description { get; set; }*@
+
+
+
+@code {
+
+    [Parameter]
+    public string MovieId { get; set; }
+
+    public Movie Movie { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Movie = MovieService.GetMovieById(MovieId);
+    }
+
+}

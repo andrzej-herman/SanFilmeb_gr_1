@@ -1,9 +1,32 @@
-﻿<div class="card movie-card">
-    <img class="card-img-top" src="https://fwcdn.pl/fph/09/36/936/183168.1.jpg" alt="Movie">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+﻿@inject NavigationManager NavigationManager
 
+
+@if (Movie != null)
+{
+    <div class="card movie-card">
+        <img class="movie-card-image" src="@Movie.ImageUrl" alt="@Movie.Title">
+        <div class="card-body">
+            <h5 class="card-title">@Movie.Title</h5>
+            <p class="card-text">@Movie.Descr</p>
+            <RadzenButton Click="ShowFullMovie" class="btn btn-primary">Show details</RadzenButton>
+        </div>
+    </div>
+}
+
+
+@code {
+
+    [Parameter]
+    public ShortMovie Movie { get; set; }
+
+    void ShowFullMovie()
+    {
+        NavigationManager.NavigateTo($"/movie/{Movie.Id}");
+    }
+}
+
+
+@*public string Id { get; set; }
+        public string ImageUrl { get; set; }
+        public string Title { get; set; }
+        public string Descr { get; set; }*@

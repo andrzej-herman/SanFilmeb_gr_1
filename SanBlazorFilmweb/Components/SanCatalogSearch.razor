@@ -1,14 +1,24 @@
 ﻿<div class="search-container">
     <RadzenText class="search-label" TextStyle="TextStyle.Subtitle2" TagName="TagName.H3">Podaj tytuł filmu, nazwisko aktora lub reżysera</RadzenText>
     <div class="search-container-inner">
-        <RadzenTextBox Class="w-100" />
-        <RadzenButton class="search-button" Shade="Shade.Dark" Text="Szukaj" ButtonStyle="ButtonStyle.Primary" />
+        <RadzenTextBox Class="w-100" @bind-Value="@Phrase"  />
+        <RadzenButton  Click="@SearchText"  class="search-button" Shade="Shade.Dark" Text="Szukaj" ButtonStyle="ButtonStyle.Primary" />
     </div>
 </div>
 
 
 
 @code {
+
+    [Parameter]
+    public EventCallback<string> OnUserSearch { get; set; } 
+
+    private string Phrase { get; set; }
+
+    async Task SearchText()
+    {
+        await OnUserSearch.InvokeAsync(Phrase);
+    }
 
 }
 

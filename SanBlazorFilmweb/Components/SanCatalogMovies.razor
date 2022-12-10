@@ -1,9 +1,25 @@
-﻿<div class="catalog">
-    <MovieTile />
-    <MovieTile />
-    <MovieTile />
-    <MovieTile />
-    <MovieTile />
-    <MovieTile />
+﻿<h2>@SearchPhrase</h2>
+
+<div class="catalog">
+    @if (Movies.Any())
+    {
+        foreach (var movie in Movies)
+        {
+            <MovieTile Movie="@movie"/>
+        }
+    }
+    else
+    {
+        <p>Brak filmów spełniających kryteria</p>
+    }
 </div>
 
+
+@code {
+    [Parameter]
+    public List<ShortMovie> Movies { get; set; } = new List<ShortMovie>();
+
+    [Parameter]
+    public string SearchPhrase { get; set; }
+
+}
